@@ -1,0 +1,13 @@
+# Mac
+.DS_Store
+**/.DS_Store
+
+# NPM (Node.js Package Manager)
+node_modules
+npm-debug.log
+
+# Bower (Javascript Components)
+bower_components
+
+# Don't add dist except when forced for releases
+dist

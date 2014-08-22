@@ -1,0 +1,32 @@
+{
+  "name": "angular-deputy",
+  "version": "1.4.0",
+  "main": "./dist/angular-deputy.js",
+  "description": "Resources with associations, computed values and offline support for AngularJS",
+  "keywords": [
+    "angular",
+    "resource",
+    "resources",
+    "offline",
+    "computed",
+    "associations",
+    "deputy"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/jamesknelson/angular-deputy.git"
+  },
+  "ignore": [
+    "node_modules",
+    "bower_components",
+    "example",
+    "test"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "angular": "~1.2.x"
+  },
+  "devDependencies": {
+    "angular-mocks": "~1.2.22"
+  }
+}
