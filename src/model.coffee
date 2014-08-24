@@ -34,15 +34,15 @@ mod.factory 'DeputyModel', ['$injector', ($injector) ->
         if refOptions.hasMany
           refDef.type = "hasMany"
           refDef.embedProperty = refOptions.hasMany
-          refDef.serviceName =
+          refDef.modelName =
             refOptions.service or
-            deputyOptions.generateHasManyServiceName(refOptions.hasMany, @name)
-          refDef.endpointName =
-            refOptions.endpoint or
-            deputyOptions.generateHasManyEndpointName(refOptions.hasMany, @name)
-          refDef.buildQuery =
-            refOptions.buildQuery or
-            deputyOptions.defaultHasManyBuildQuery(this, refOptions)
+            deputyOptions.generateHasManyModelName(refOptions.hasMany, @name)
+          # refDef.endpointName =
+          #   refOptions.endpoint or
+          #   deputyOptions.generateHasManyEndpointName(refOptions.hasMany, @name)
+          # refDef.buildQuery =
+          #   refOptions.buildQuery or
+          #   deputyOptions.defaultHasManyBuildQuery(this, refOptions)
 
           inverseForeignKeyProperty =
             refOptions.inverseForeignKeyProperty or
@@ -69,15 +69,15 @@ mod.factory 'DeputyModel', ['$injector', ($injector) ->
           refDef.foreignKeyProperty =
             refOptions.foreignKeyProperty or
             deputyOptions.defaultForeignKeyProperty(this, refOptions)
-          refDef.serviceName =
+          refDef.modelName =
             refOptions.service or
-            deputyOptions.generateBelongsToServiceName(refOptions.belongsTo, @name)
-          refDef.endpointName =
-            refOptions.endpoint or
-            deputyOptions.generateBelongsToEndpointName(refOptions.belongsTo, @name)
-          refDef.buildQuery =
-            refOptions.buildQuery or
-            deputyOptions.defaultBelongsToBuildQuery(this, refOptions)
+            deputyOptions.generateBelongsToModelName(refOptions.belongsTo, @name)
+          # refDef.endpointName =
+          #   refOptions.endpoint or
+          #   deputyOptions.generateBelongsToEndpointName(refOptions.belongsTo, @name)
+          # refDef.buildQuery =
+          #   refOptions.buildQuery or
+          #   deputyOptions.defaultBelongsToBuildQuery(this, refOptions)
 
           if refOptions.dependent
             throw new Error("new DeputyModel: dependent belongsTo references are unsupported")
@@ -90,7 +90,7 @@ mod.factory 'DeputyModel', ['$injector', ($injector) ->
         defProp refDef, 'service',
           configurable: true
           get: ->
-            service = $injector.get(refDef.serviceName)
+            service = $injector.get(refDef.modelName)
             defProp refDef, 'service', value: service
             service
         defProp refDef, 'endpoint',
